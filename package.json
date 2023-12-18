@@ -1,0 +1,11 @@
+{
+  "name": "enyo-test",
+  "version": "1.0.0",
+  "description": "Enyo Solutions Code Test by Alex Paris",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Paris",
+  "license": "MIT"
+}
