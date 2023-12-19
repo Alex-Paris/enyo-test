@@ -24,6 +24,7 @@ _**(Important)** Since it is local, you don't need to worry about the var_ 'DATA
 ## Packages
 **Typing**: _Typescript, ESlint and @paristech/eslint-config._ \
 **Database**: _Prisma and MySQL._ \
+**Test**: _Jest._ \
 **Others**: _Docker and Docker-Compose._
 
 ### Coding Test (sent by Nima)

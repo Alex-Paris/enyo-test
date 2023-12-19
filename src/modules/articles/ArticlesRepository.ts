@@ -5,10 +5,10 @@ const prisma = new PrismaClient()
 export default class ArticlesRepository {
   public async createImportation(
     data: Omit<Importations, 'id' | 'updatedAt' | 'createdAt'>,
-  ): Promise<number> {
-    const { id: importationId } = await prisma.importations.create({ data })
+  ): Promise<Importations> {
+    const importation = await prisma.importations.create({ data })
 
-    return importationId
+    return importation
   }
 
   public async getItems(): Promise<Items[]> {
@@ -26,8 +26,8 @@ export default class ArticlesRepository {
     link,
     mainPicture,
     publicationDate,
-  }: Omit<Items, 'id' | 'updatedAt' | 'createdAt'>): Promise<void> {
-    await prisma.items.upsert({
+  }: Omit<Items, 'id' | 'updatedAt' | 'createdAt'>): Promise<Items> {
+    return await prisma.items.upsert({
       where: {
         externalId,
       },
@@ -52,5 +52,10 @@ export default class ArticlesRepository {
         importationId,
       },
     })
+  }
+
+  public async removeAll(): Promise<void> {
+    await prisma.items.deleteMany()
+    await prisma.importations.deleteMany()
   }
 }

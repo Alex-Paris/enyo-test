@@ -50,7 +50,7 @@ export default class ArticlesController {
 
     // Inserting importation on db
     const repo = new ArticlesRepository()
-    const importationId = await repo.createImportation({
+    const { id: importationId } = await repo.createImportation({
       importationDate,
       rawContent,
     })
