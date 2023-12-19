@@ -16,6 +16,12 @@ _**(Important)** You can execute prisma studio ('npm run studio') to use it as d
 4. Execute the command `npm run dev` \
 _**(Important)** Since it is local, you don't need to worry about the var_ 'DATABASE_URL' _to execute prisma studio. But remember, you don't need to use it if you don't want to._
 
+### Use of Jest
+1. I'd let on .env file a commented 'DATABASE_URL' for Jest purposes. Set the right URL for it, a new db name and uncomment it
+2. Execute the command `npm run migrate` to create database structure
+4. Execute the command `npm run test` \
+_**(Important)** Since the controller doesn't have to validate anything, all tests (in this case, of corse) are made on Repository. Prisma by itself create or update the data, avoiding duplications. The best way, however, is more complex and we would need to break Controller processes to Services. (like i did in a project template I made:_ https://github.com/Alex-Paris/template_server _)._
+
 ## Commands
 `npm run dev`: to execute the API \
 `npm run migrate`: create/update database to the latest version \
