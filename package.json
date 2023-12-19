@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "nodemon src/shared/infra/server.ts",
     "migrate": "npx prisma migrate dev",
+    "push": "npx prisma db push",
     "studio": "npx prisma studio",
     "test": "npx jest --runInBand --forceExit"
   },

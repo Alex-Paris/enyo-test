@@ -1,25 +1,22 @@
 # Enyo Solutions Code Test by Alex Paris
 This is the code test of Enyo Solutions made by Alex Paris.
 
+**Node** v20.10.0
+**Npm** v8.18.0
+Path `http://localhost:3333/`
+
 ## Instructions
-Path: `http://localhost:3333/`
-
-### Using Docker Compose (Faster way)
-Just run the following command `docker-compose up`. \
-_It will create app, new mysql container and create database with the expected schema. They will connect to each other using the host 'database:3306' (that is already configured)_ \
-_**(Important)** You can execute prisma studio ('npm run studio') to use it as db admin, but keep in mind that you should adapt .env var_ 'DATABASE_URL' _to the host of mysql in your computer, since 'database:3306' is accessible only between the containers. One way is to execute the API, change database variable, open studio and then put the 'database:3306' back._
-
-### Manually (the sad way D=)
-1. Install (or use an existing one) MySQL and insert it url to the .env var_ 'DATABASE_URL' (you don't need to worry about the database)
+1. Install (or use an existing one) MySQL and insert it url to the .env var_ 'DATABASE_URL' (you don't need to worry about the database) \
+OR you can use the command `docker-compose up -d database`
 2. Execute the command `npm install`
 3. Execute the command `npm run migrate` and wait for the migration process to complete
-4. Execute the command `npm run dev` \
-_**(Important)** Since it is local, you don't need to worry about the var_ 'DATABASE_URL' _to execute prisma studio. But remember, you don't need to use it if you don't want to._
+4. Run the following command `npm run dev`. \
+
 
 ### Use of Jest
 1. I'd let on .env file a commented 'DATABASE_URL' for Jest purposes. Set the right URL for it, a new db name and uncomment it
 2. Execute the command `npm run migrate` to create database structure
-4. Execute the command `npm run test` \
+3. Execute the command `npm run test` \
 _**(Important)** Since the controller doesn't have to validate anything, all tests (in this case, of corse) are made on Repository. Prisma by itself create or update the data, avoiding duplications. The best way, however, is more complex and we would need to break Controller processes to Services. (like i did in a project template I made:_ https://github.com/Alex-Paris/template_server _)._
 
 ## Commands
