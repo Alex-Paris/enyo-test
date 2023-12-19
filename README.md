@@ -10,9 +10,10 @@ _It will create app, new mysql container and create database with the expected s
 _**(Important)** You can execute prisma studio ('npm run studio') to use it as db admin, but keep in mind that you should adapt .env var_ 'DATABASE_URL' _to the host of mysql in your computer, since 'database:3306' is accessible only between the containers. One way is to execute the API, change database variable, open studio and then put the 'database:3306' back._
 
 ### Manually (the sad way D=)
-1. Install (or use an existing one) MySQL and insert it url to the .env var_ 'DATABASE_URL' (you don't need to worry about the database) \
-2. Execute the command `npm run migrate` and wait for the migration process to complete \
-3. Execute the command `npm run dev`
+1. Install (or use an existing one) MySQL and insert it url to the .env var_ 'DATABASE_URL' (you don't need to worry about the database)
+2. Execute the command `npm install`
+3. Execute the command `npm run migrate` and wait for the migration process to complete
+4. Execute the command `npm run dev` \
 _**(Important)** Since it is local, you don't need to worry about the var_ 'DATABASE_URL' _to execute prisma studio. But remember, you don't need to use it if you don't want to._
 
 ## Commands
@@ -23,7 +24,6 @@ _**(Important)** Since it is local, you don't need to worry about the var_ 'DATA
 ## Packages
 **Typing**: _Typescript, ESlint and @paristech/eslint-config._ \
 **Database**: _Prisma and MySQL._ \
-**Test**: _Jest._ \
 **Others**: _Docker and Docker-Compose._
 
 ### Coding Test (sent by Nima)

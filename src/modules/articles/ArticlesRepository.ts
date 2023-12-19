@@ -11,6 +11,12 @@ export default class ArticlesRepository {
     return importationId
   }
 
+  public async getItems(): Promise<Items[]> {
+    const items = await prisma.items.findMany()
+
+    return items
+  }
+
   public async createOrUpdateItems({
     title,
     description,

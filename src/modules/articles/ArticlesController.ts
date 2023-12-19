@@ -20,6 +20,13 @@ interface XmlItem {
 }
 
 export default class ArticlesController {
+  public async get(_: Request, resp: Response): Promise<Response> {
+    const repo = new ArticlesRepository()
+    const items = await repo.getItems()
+
+    return resp.json(items)
+  }
+
   public async import(_: Request, resp: Response): Promise<Response> {
     const response = await fetch('https://www.lemonde.fr/rss/une.xml')
 
