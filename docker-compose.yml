@@ -11,13 +11,11 @@ services:
       - .:/usr/app
     links:
       - database
-      - cache
     depends_on:
       - database
-      - cache
 
   database:
-    image: mysql
+    image: mysql:latest
     container_name: enyo-test-mysql
     restart: always
     ports:
@@ -27,21 +25,11 @@ services:
     environment:
       - MYSQL_DATABASE=dbenyo
       - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
       - MYSQL_ROOT_PASSWORD=a12345z
     volumes:
       - database:/var/lib/mysql
 
-  cache:
-    image: redis:alpine
-    container_name: enyo-test-redis
-    restart: always
-    ports:
-      - 6379:6379
-    volumes:
-      - cache:/data/redis
-
 volumes:
   database:
-    driver: local
-  cache:
     driver: local

@@ -11,22 +11,25 @@ datasource db {
 }
 
 model Importations {
-  id               Int      @id @default(autoincrement())
-  date_importation DateTime
-  rawContent       String
-  published        Boolean  @default(false)
-  updatedAt        DateTime @updatedAt
-  createdAt        DateTime @default(now())
+  id              Int      @id @default(autoincrement())
+  importationDate DateTime @default(now())
+  rawContent      String   @db.Text
+  updatedAt       DateTime @updatedAt
+  createdAt       DateTime @default(now())
+  Items           Items[]
 }
 
 model Items {
-  id          Int      @id @default(autoincrement())
-  externalId  String   @db.VarChar(500)
-  importDate  DateTime
-  title       String
-  description String
-  link        String
-  mainPicture String
-  updatedAt   DateTime @updatedAt
-  createdAt   DateTime @default(now())
+  id              Int          @id @default(autoincrement())
+  externalId      String       @db.VarChar(500) @unique
+  importDate      DateTime
+  title           String       @db.Text
+  description     String       @db.Text
+  publicationDate DateTime
+  link            String       @db.Text
+  mainPicture     String       @db.Text
+  importation     Importations @relation(fields: [importationId], references: [id])
+  importationId   Int
+  updatedAt       DateTime     @updatedAt
+  createdAt       DateTime     @default(now())
 }
